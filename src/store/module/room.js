@@ -125,7 +125,7 @@ const actions = {
     if (!wsService.checkConnection()) return
     let now = new Date()
     let year = now.getFullYear() % 10
-    let second = ~~(now.getTime() / 1000) % 31556952
+    let second = ~~(now.getTime() / 1000) % 31556952 // ~~ to int
     let localId = `${year}${second}`
     let i = rootState.room.historyList.findIndex(e =>e.localId == localId)
     if (~i) return // 发送太频繁
